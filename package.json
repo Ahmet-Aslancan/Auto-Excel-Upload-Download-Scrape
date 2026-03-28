@@ -1,0 +1,21 @@
+{
+  "name": "pen-excel-auto-updater-extension",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chrome extension to scrape active page and update matching PEN ID rows in Excel.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/build.mjs --watch",
+    "generate:tables-page": "node scripts/generate-tables-page.mjs",
+    "generate:student-portal": "node scripts/generate-student-portal.mjs",
+    "generate:template": "node scripts/generate-template.mjs"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0",
+    "jszip": "^3.10.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.1"
+  }
+}

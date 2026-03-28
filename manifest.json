@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "PEN ID Excel Auto Updater",
+  "description": "Scrape PEN ID and form fields from the active page, then update matching rows in Excel.",
+  "version": "1.0.0",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "scripting",
+    "downloads",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://rbsk.mohfw.gov.in/"
+  ],
+  "action": {
+    "default_title": "PEN Excel Updater"
+  },
+  "background": {
+    "service_worker": "build/background.js"
+  }
+}

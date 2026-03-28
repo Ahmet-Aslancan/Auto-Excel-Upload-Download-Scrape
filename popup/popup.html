@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PEN Excel Auto Entry App</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div class="header-container">
+          <div id="entryCountBar" class="entry-count-bar">
+            Available entry count: <span id="entryCountValue" style="font-size: 3em; font-weight: bold;">—</span>
+          </div>
+          <button id="closeButton" class="icon-btn" type="button" title="Close">Close</button>
+        </div>
+        <!-- <button id="logoutButton" class="icon-btn" type="button" title="Logout" style="display: none;">Logout</button> -->
+        
+      </header>
+
+      <!-- Sign-in screen (shown first) -->
+      <section id="signinSection" class="card auth-card">
+        <div class="auth-header">
+          <div class="auth-badge">PEN Excel Auto Entry App</div>
+          <h1 class="auth-title">Sign In</h1>
+          <p class="auth-subtitle">
+            Connect your extension with your RBSK Auto Data Entry account.
+          </p>
+        </div>
+
+        <div class="auth-fields">
+          <div class="auth-field">
+            <label class="label" for="signinStaffId">User ID</label>
+            <input id="signinStaffId" type="text" placeholder="Enter your User ID" />
+          </div>
+
+          <div class="auth-field">
+            <label class="label" for="signinPassword">Password</label>
+            <input id="signinPassword" type="password" placeholder="Enter your password" />
+          </div>
+        </div>
+
+        <button id="signinButton" class="btn btn-primary auth-submit">Sign In</button>
+        <p id="signinStatusText" class="status-text info auth-status">
+          Enter your details and click Sign In.
+        </p>
+        <div class="policy-consent">
+          By signing in, you agree to our
+          <a
+            class="policy-link"
+            href="https://cbtechmp.com/privacy-policy"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Open Privacy Policy"
+          >
+            Privacy Policy
+          </a>.
+        </div>
+      </section>
+
+      <!-- Main extension UI (hidden until signed in) -->
+      <section id="mainSection" style="display: none;">
+        <section class="hero">
+          <h1>PEN Excel Updater</h1>
+          <p>Upload Excel, scrape active page, and auto-fill all rows by PEN ID / AWC Child ID.</p>
+        </section>
+
+        <section class="card">
+          <label class="label" for="excelFile">Excel file</label>
+          <input id="excelFile" type="file" accept=".xlsx,.xls,.csv" />
+          <small class="hint">
+            Required: a column <strong>PEN ID</strong> or <strong>AWC Child ID</strong> (same value; or PEN_ID / pen_id / PEN).
+          </small>
+        </section>
+
+        <section class="actions">
+          <button id="runButton" class="btn btn-primary">Upload and Autofill All Rows</button>
+          <button id="downloadDetailedButton" class="btn btn-secondary">Download Detailed Excel</button>
+        </section>
+
+        <section class="status">
+          <p id="statusText" class="status-text info">Ready.</p>
+        </section>
+
+        <section class="preview">
+          <h2>Auto Fill Run Summary</h2>
+          <div id="previewContainer">No run summary yet.</div>
+        </section>
+      </section>
+    </main>
+
+    <script src="../build/popup.js"></script>
+  </body>
+</html>
